@@ -18,10 +18,10 @@ class ProductoController extends Controller
         $producto->descripcion = $request->descripcion;
         $producto->precio = $request->precio;
 
-
         $producto->save();
 
-        return $producto;
+        //return $producto;
+        return "OK";
 
     }
 
@@ -36,8 +36,8 @@ class ProductoController extends Controller
     {
         $productos = Producto::all();
 
-        //return $productos;
-        return response()->json($productos); //Se regresa en json para usar en combo box
+        return $productos;
+        //return response()->json($productos); //Se regresa en json para usar en combo box
     }
 
     public function delete(Request $request)
