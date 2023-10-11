@@ -25,26 +25,46 @@ class ProductoController extends Controller
 
     }
 
-    public function get(Request $request)
+    public function update(Request $request, $id) // Agregado el parámetro $id
     {
-        $producto = Producto::find($request->id);
+        $producto = Producto::find($id);
+        if (!$producto) {
+            return response("Producto no encontrado", 404);
+        }
+
+        $producto->codigo = $request->codigo;
+        $producto->descripcion = $request->descripcion;
+        $producto->precio = $request->precio;
+
+        $producto->save();
+
+        return "OK";
+    }
+
+    public function get($id) // Cambiado el parámetro a $id
+    {
+        $producto = Producto::find($id);
 
         return $producto;
     }
 
     public function list()
     {
-        $productos = Producto::all();
+        //$productos = Producto::all();
+        $productos = Producto::orderBy('id', 'asc')->get(); //Ordenarlos por id
 
         return $productos;
         //return response()->json($productos); //Se regresa en json para usar en combo box
     }
 
-    public function delete(Request $request)
+    public function delete($id) // Cambiado el parámetro a $id
     {
-        $producto = Producto::find($request->id);
+        $producto = Producto::find($id);
+        if (!$producto) {
+            return response("Producto no encontrado", 404);
+        }
         $producto->delete();
 
-        return "Ok";
+        return "OK";
     }
 }
