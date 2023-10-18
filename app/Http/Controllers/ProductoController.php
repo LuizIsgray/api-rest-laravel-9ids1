@@ -54,7 +54,6 @@ class ProductoController extends Controller
         $productos = Producto::orderBy('id', 'asc')->get(); //Ordenarlos por id
 
         return $productos;
-        //return response()->json($productos); //Se regresa en json para usar en combo box
     }
 
     public function delete($id) // Cambiado el parámetro a $id
