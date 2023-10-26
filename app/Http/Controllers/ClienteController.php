@@ -17,8 +17,10 @@ class ClienteController extends Controller
         $cliente->nombre = $request->nombre;
         $cliente->telefono = $request->telefono;
         $cliente->direccion = $request->direccion;
+        /*
         $cliente->ubi_latitud = $request->ubi_latitud;
         $cliente->ubi_longitud = $request->ubi_longitud;
+        */
 
         $cliente->save();
 
@@ -37,8 +39,10 @@ class ClienteController extends Controller
         $cliente->nombre = $request->nombre;
         $cliente->telefono = $request->telefono;
         $cliente->direccion = $request->direccion;
+        /*
         $cliente->ubi_latitud = $request->ubi_latitud;
         $cliente->ubi_longitud = $request->ubi_longitud;
+        */
 
         $cliente->save();
 
