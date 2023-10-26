@@ -17,8 +17,8 @@ class ClienteController extends Controller
         $cliente->nombre = $request->nombre;
         $cliente->telefono = $request->telefono;
         $cliente->direccion = $request->direccion;
-        $cliente->ubi_latitud = $request->ubi_latitud;
-        $cliente->ubi_longitud = $request->ubi_longitud;
+        $cliente->ubicacion_latitud = $request->ubicacion_latitud;
+        $cliente->ubicacion_longitud = $request->ubicacion_longitud;
 
         $cliente->save();
 
@@ -31,14 +31,14 @@ class ClienteController extends Controller
     {
         $cliente = Cliente::find($id);
         if (!$cliente) {
-            return response("cliente no encontrado", 404);
+            return response("Cliente no encontrado", 404);
         }
 
         $cliente->nombre = $request->nombre;
         $cliente->telefono = $request->telefono;
         $cliente->direccion = $request->direccion;
-        $cliente->ubi_latitud = $request->ubi_latitud;
-        $cliente->ubi_longitud = $request->ubi_longitud;
+        $cliente->ubicacion_latitud = $request->ubicacion_latitud;
+        $cliente->ubicacion_longitud = $request->ubicacion_longitud;
 
         $cliente->save();
 
@@ -65,7 +65,7 @@ class ClienteController extends Controller
     {
         $cliente = Cliente::find($id);
         if (!$cliente) {
-            return response("cliente no encontrado", 404);
+            return response("Cliente no encontrado", 404);
         }
         $cliente->delete();
 

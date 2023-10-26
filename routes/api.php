@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Http\Request;
@@ -27,4 +28,10 @@ Route::post('productos', [ProductoController::class, 'create']);
 Route::get('productos/{id}', [ProductoController::class, 'get']);
 Route::put('productos/{id}', [ProductoController::class, 'update']);
 Route::delete('productos/{id}', [ProductoController::class, 'delete']);
+
+Route::get('clientes', [ClienteController::class, 'list']);
+Route::post('clientes', [ClienteController::class, 'create']);
+Route::get('clientes/{id}', [ClienteController::class, 'get']);
+Route::put('clientes/{id}', [ClienteController::class, 'update']);
+Route::delete('clientes/{id}', [ClienteController::class, 'delete']);
 

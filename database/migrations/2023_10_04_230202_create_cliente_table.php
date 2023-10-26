@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('telefono');
             $table->string('direccion');
-            $table->string('ubi_latitud');
-            $table->string('ubi_longitud');
+            $table->string('ubicacion_latitud');
+            $table->string('ubicacion_longitud');
 
             $table->timestamps();
         });
