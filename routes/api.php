@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -34,4 +35,10 @@ Route::post('clientes', [ClienteController::class, 'create']);
 Route::get('clientes/{id}', [ClienteController::class, 'get']);
 Route::put('clientes/{id}', [ClienteController::class, 'update']);
 Route::delete('clientes/{id}', [ClienteController::class, 'delete']);
+
+Route::get('pedidos', [PedidoController::class, 'list']);
+Route::post('pedidos', [PedidoController::class, 'create']);
+Route::get('pedidos/{id}', [PedidoController::class, 'get']);
+Route::put('pedidos/{id}', [PedidoController::class, 'update']);
+Route::delete('pedidos/{id}', [PedidoController::class, 'delete']);
 
