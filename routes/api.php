@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\DetallePedidoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
@@ -41,4 +42,10 @@ Route::post('pedidos', [PedidoController::class, 'create']);
 Route::get('pedidos/{id}', [PedidoController::class, 'get']);
 Route::put('pedidos/{id}', [PedidoController::class, 'update']);
 Route::delete('pedidos/{id}', [PedidoController::class, 'delete']);
+
+Route::get('detalles-pedido', [DetallePedidoController::class, 'list']);
+Route::post('detalles-pedido', [DetallePedidoController::class, 'create']);
+Route::get('detalles-pedido/{id}', [DetallePedidoController::class, 'get']);
+Route::put('detalles-pedido/{id}', [DetallePedidoController::class, 'update']);
+Route::delete('detalles-pedido/{id}', [DetallePedidoController::class, 'delete']);
 

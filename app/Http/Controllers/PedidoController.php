@@ -21,7 +21,7 @@ class PedidoController extends Controller
         $pedido->save();
 
         //return $pedido;
-        return "OK";
+        return $pedido;
     }
 
     public function update(Request $request, $id) // Agregado el parámetro $id
@@ -37,7 +37,7 @@ class PedidoController extends Controller
 
         $pedido->save();
 
-        return "OK";
+        return "OK Actualizado: $pedido";
     }
 
     public function get($id) // Cambiado el parámetro a $id

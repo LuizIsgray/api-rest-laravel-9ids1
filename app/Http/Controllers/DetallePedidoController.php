@@ -14,9 +14,10 @@ class DetallePedidoController extends Controller
         } else {
             $detallePedido = DetallePedido::find($request->id);
         }
-        $detallePedido->numero_pedido = $request->numero_pedido;
-        $detallePedido->fecha_hora = $request->fecha_hora;
-        $detallePedido->cliente_id = $request->cliente_id;
+        $detallePedido->pedido_id = $request->pedido_id;
+        $detallePedido->producto_id = $request->producto_id;
+        $detallePedido->cantidad = $request->cantidad;
+        $detallePedido->total = $request->total;
 
         $detallePedido->save();
 
@@ -31,9 +32,10 @@ class DetallePedidoController extends Controller
             return response("Pedido no encontrado", 404);
         }
 
-        $detallePedido->numero_pedido = $request->numero_pedido;
-        $detallePedido->fecha_hora = $request->fecha_hora;
-        $detallePedido->cliente_id = $request->cliente_id;
+        $detallePedido->pedido_id = $request->pedido_id;
+        $detallePedido->producto_id = $request->producto_id;
+        $detallePedido->cantidad = $request->cantidad;
+        $detallePedido->total = $request->total;
 
         $detallePedido->save();
 
@@ -42,7 +44,7 @@ class DetallePedidoController extends Controller
 
     public function get($id) // Cambiado el parámetro a $id
     {
-        $detallePedido = DetallePedido::find($id);
+        $detallePedido = DetallePedido::with('pedido', 'producto')->find($id);
 
         return $detallePedido;
     }
@@ -50,7 +52,7 @@ class DetallePedidoController extends Controller
     public function list()
     {
         //$pedidos = Pedido::all();
-        $detallesPedido = DetallePedido::orderBy('id', 'asc')->get(); //Ordenarlos por id
+        $detallesPedido = DetallePedido::with('pedido', 'producto')->orderBy('id', 'asc')->get(); //Ordenarlos por id
 
         return $detallesPedido;
         //return response()->json($pedidos); //Se regresa en json para usar en combo box
