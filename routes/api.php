@@ -44,6 +44,7 @@ Route::put('pedidos/{id}', [PedidoController::class, 'update']);
 Route::delete('pedidos/{id}', [PedidoController::class, 'delete']);
 
 Route::get('detalles-pedido', [DetallePedidoController::class, 'list']);
+Route::get('/detalles-pedido/pedido/{pedido_id}', [DetallePedidoController::class, 'listByProduct']);
 Route::post('detalles-pedido', [DetallePedidoController::class, 'create']);
 Route::get('detalles-pedido/{id}', [DetallePedidoController::class, 'get']);
 Route::put('detalles-pedido/{id}', [DetallePedidoController::class, 'update']);

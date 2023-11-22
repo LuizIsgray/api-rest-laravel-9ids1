@@ -16,6 +16,7 @@ class DetallePedidoController extends Controller
         }
         $detallePedido->pedido_id = $request->pedido_id;
         $detallePedido->producto_id = $request->producto_id;
+        $detallePedido->descripcion = $request->descripcion;
         $detallePedido->cantidad = $request->cantidad;
         $detallePedido->total = $request->total;
 
@@ -34,6 +35,7 @@ class DetallePedidoController extends Controller
 
         $detallePedido->pedido_id = $request->pedido_id;
         $detallePedido->producto_id = $request->producto_id;
+        $detallePedido->descripcion = $request->descripcion;
         $detallePedido->cantidad = $request->cantidad;
         $detallePedido->total = $request->total;
 
@@ -57,6 +59,16 @@ class DetallePedidoController extends Controller
         return $detallesPedido;
         //return response()->json($pedidos); //Se regresa en json para usar en combo box
     }
+
+    public function listByProduct($pedido_id)
+{
+    $detallesPedido = DetallePedido::with('pedido', 'producto')
+        ->where('pedido_id', $pedido_id)
+        ->orderBy('id', 'asc')
+        ->get();
+
+    return $detallesPedido;
+}
 
     public function delete($id) // Cambiado el parámetro a $id
     {

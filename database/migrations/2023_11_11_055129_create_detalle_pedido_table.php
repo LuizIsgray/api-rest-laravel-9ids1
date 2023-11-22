@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('producto_id');
             $table->foreign('producto_id')->references('id')->on('productos')->cascadeOnDelete()->cascadeOnUpdate();;
 
+            $table->string('descripcion');
             $table->integer('cantidad');
             $table->decimal('total', 10,2);
 
